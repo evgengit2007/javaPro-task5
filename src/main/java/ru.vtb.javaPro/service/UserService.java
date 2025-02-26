@@ -1,13 +1,33 @@
 package ru.vtb.javaPro.service;
 
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
-import ru.vtb.javaPro.dao.UserDao;
-import ru.vtb.javaPro.dto.Users;
+import ru.vtb.javaPro.entity.User;
+import ru.vtb.javaPro.repository.UserRepository;
 
 import java.util.List;
 
+@Slf4j
 @Service
-public class UserService {
+@RequiredArgsConstructor
+public class UserService implements CommandLineRunner {
+
+    private final UserRepository userRepository;
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        findAll().forEach(user -> log.info(user.toString()));
+    }
+
+
+    /*
     private UserDao userDao;
 
     public UserService(UserDao userDao) {
@@ -36,4 +56,5 @@ public class UserService {
     public Boolean deleteUser(Users users) {
         return userDao.deleteData(users);
     }
+*/
 }

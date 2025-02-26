@@ -29,6 +29,8 @@ public class ApplicationConfig {
         this.password = password;
         this.driverClassName = driverClassName;
     }
+
+/*
     @Bean
     public DataSource dataSource() {
         HikariConfig hikariConfig = new HikariConfig();
@@ -41,7 +43,9 @@ public class ApplicationConfig {
         hikariConfig.setAutoCommit(true);
         return new HikariDataSource(hikariConfig);
     }
+*/
 
+/*
     @Bean
     public Flyway flyway() {
         Flyway flyway = Flyway.configure()
@@ -53,4 +57,5 @@ public class ApplicationConfig {
         flyway.migrate();
         return flyway;
     }
+*/
 }

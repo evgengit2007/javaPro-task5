@@ -1,8 +1,7 @@
 package ru.vtb.javaPro;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.vtb.javaPro.dto.Users;
 import ru.vtb.javaPro.service.UserService;
 
@@ -11,16 +10,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-@Configuration
-@ComponentScan
+@SpringBootApplication
 public class Main {
-    public static void main(String[] args) throws SQLException {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
-        UserService userService = context.getBean(UserService.class);
-        DataSource dataSource = context.getBean(DataSource.class);
-        run(userService, dataSource);
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
     }
 
+/*
     public static void run(UserService userService, DataSource dataSource) throws SQLException {
         Logger log;
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
@@ -56,4 +52,5 @@ public class Main {
         connection.close();
 
     }
+*/
 }
