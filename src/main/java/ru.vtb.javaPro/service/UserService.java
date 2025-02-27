@@ -19,18 +19,18 @@ public class UserService implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        findAll().forEach(user -> log.info(user.toString()));   // получить все записи
-        User user = findUserById(1L);                           // получить запись по id
+        findAll().forEach(user -> log.info(user.toString()));   // РїРѕР»СѓС‡РёС‚СЊ РІСЃРµ Р·Р°РїРёСЃРё
+        User user = findUserById(1L);                           // РїРѕР»СѓС‡РёС‚СЊ Р·Р°РїРёСЃСЊ РїРѕ id
         log.info("Found user for id {} : " + user.toString(), 1L);
         log.info("Add user for username Leonid");
-        insertUser("Leonid");                            // добавить запись по username
+        insertUser("Leonid");                            // РґРѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ РїРѕ username
         log.info("Add user for username Vladislav");
-        user = insertUser("Vladislav");                    // добавить 2-ю запись по username
+        user = insertUser("Vladislav");                    // РґРѕР±Р°РІРёС‚СЊ 2-СЋ Р·Р°РїРёСЃСЊ РїРѕ username
         log.info("Delete user for username {}: " + user.toString(), user.getUsername());
-        deleteUser(user);                                       // удалить запись
-        user = findUserByName("Evgen");                         // получить запись по username
+        deleteUser(user);                                       // СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ
+        user = findUserByName("Evgen");                         // РїРѕР»СѓС‡РёС‚СЊ Р·Р°РїРёСЃСЊ РїРѕ username
         log.info("Update user for username {}: " + user.toString(), user.getUsername());
-        updateUsernameById(1L, "EvgenUpdate");          // обновить запись по id
+        updateUsernameById(1L, "EvgenUpdate");          // РѕР±РЅРѕРІРёС‚СЊ Р·Р°РїРёСЃСЊ РїРѕ id
     }
 
     public List<User> findAll() {
